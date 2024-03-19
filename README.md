@@ -57,25 +57,23 @@ git pull
 To use this module, add it to the modules array in the `config/config.js` file:
 
 ```javascript
-modules: [
-    {
-        module: 'MMM-SmartWebDisplay',
-        position: 'middle_center',    // This can be any of the regions.
-        config: {
-            // See 'Configuration options' for more information.
-            logDebug: false, // set to true to get detailed debug logs. To see them: "Ctrl+Shift+i"
-            height:"100%",
-            width:"100%",
-            updateInterval: 0, // in min. Set it to 0 for no refresh (for videos)
-            NextURLInterval: 0.5, // in min, set it to 0 not to have automatic URL change. If only 1 URL is given, it will be updated
-            displayLastUpdate: true, // to display the last update of the URL
-            displayLastUpdateFormat: 'ddd - HH:mm:ss', // format of the date and time to display
-            url: ["http://magicmirror.builders/", "https://www.youtube.com/embed/Qwc2Eq6YXTQ?autoplay=1"], //source of the URL to be displayed
-            scrolling: "no", // allow scrolling or not. HTML 4 only
-            shutoffDelay: 10000 // delay in milliseconds to video shut-off while using together with MMM-PIR-Sensor 
-        }
-    },
-]
+{
+  module: 'MMM-SmartWebDisplay',
+  position: 'middle_center',
+  config: {
+    // See 'Configuration options' for more information.
+    logDebug: false, // set to true to get detailed debug logs. To see them: "Ctrl+Shift+i"
+    height:"100%", // height
+    width:"100%", // width
+    updateInterval: 0, // in minuttes. 0 for no refresh
+    NextURLInterval: 0.5, // in minuttes, 0 to not auto jump to next
+    displayLastUpdate: true, // display the last update time
+    displayLastUpdateFormat: 'ddd - HH:mm:ss', // format of the date and time to display
+    url: ["http://magicmirror.builders/", "https://www.youtube.com/embed/Qwc2Eq6YXTQ?autoplay=1"], // URL to be displayed
+    scrolling: "no", // whether or not to allow scrolling
+    shutoffDelay: 10000 // delay in milliseconds to video shut-off while using together with MMM-PIR-Sensor 
+  }
+},
 ```
 
 ## Configuration options
@@ -135,17 +133,7 @@ now paste it on any notepad. It should look like this:
 <iframe width="853" height="480" src="https://www.youtube.com/embed/XMIc4uTAMh0?list=PLbIZ6k-SE9ShGEZ_wuvG3hatiC6jWJgVm" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ```
 
-we only need the source src part so copy this part only, it should look like this:
-```
-https://www.youtube.com/embed/XMIc4uTAMh0?list=PLbIZ6k-SE9ShGEZ_wuvG3hatiC6jWJgVm
-```
-
-copy this link to the module URL: in the config.js file and voila! you have a full playlist in your mirror... but wait a minute videos are not auto playable and I want to add a shuffle! also, what happens when the list play is finished? here comes the fun part (^_^) you can simply add tags called YouTube player parameters within your link just like that link&TAG
-so in our example to enable autoplay add the tag:
-
-    autoplay=1
-
-so our link will be
+Copy the `src` part and add `autoplay=1` at the end so the video auto starts, like this:
 ```
 https://www.youtube.com/embed/XMIc4uTAMh0?list=PLbIZ6k-SE9ShGEZ_wuvG3hatiC6jWJgVm&autoplay=1
 ```
