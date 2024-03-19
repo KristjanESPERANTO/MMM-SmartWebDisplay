@@ -97,7 +97,7 @@ The following properties can be configured:
 
 ## Notifications
 
-Here's the updated text with the table including the SWD_URL command:
+Notifications you can send to this module:
 
 | Command   | Description                                            | Payload                                                                    |
 |-----------|--------------------------------------------------------|----------------------------------------------------------------------------|
