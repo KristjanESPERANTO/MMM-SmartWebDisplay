@@ -1,10 +1,10 @@
 # MMM-SmartWebDisplay
 
-`MMM-SmartWebDisplay` is a module for MagicMirror². It allows displaying any web content on your [MagicMirror](https://github.com/MagicMirrorOrg/MagicMirror) and interacting with it through notifications or with [MMM-TelegramBot](https://github.com/eouia/MMM-TelegramBot).
+**MMM-SmartWebDisplay** is a module for MagicMirror². It allows displaying any web content on your [MagicMirror](https://github.com/MagicMirrorOrg/MagicMirror) and interacting with it through notifications or with [MMM-TelegramBot](https://github.com/MMRIZE/MMM-TelegramBot).
 
-This module is a major evolution of [MMM-iFrame-Ping](https://github.com/AgP42/MMM-iFrame-Ping)
+This module is a major evolution of [MMM-iFrame-Ping](https://github.com/AgP42/MMM-iFrame-Ping).
 
-## Main functionalities of MMM-SmartWebDisplay module:
+## Main functionalities
 
 - Periodically refresh the URL
 - Rotating URLs in a list
@@ -20,63 +20,66 @@ These notifications can be sent by several other MM modules and also (thanks to 
 - Possibility to display the date and time of the last update request (configurable)
 - Possibility to declare several instances (but so far the notification will address all the instances together)
 
-Known issues:
+## Known issues
+
 - If several instances of this module are declared, the notifications/Telegram messages sent will apply to each instance.
 
-Some screenshots:
+## Screenshots
 
 Displaying YouTube (displayLastUpdate: true):
 
-![MMM-SmartWebDisplay](https://github.com/AgP42/MMM-iFrame-Ping/blob/master/screenshot/MMM-iFrame-Ping_youtube_update.png)
+![YouTube](screenshots/youtube_lastupdate.png)
 
 Displaying TRENDnet snapshot (displayLastUpdate: false):
 
-![MMM-SmartWebDisplay](https://github.com/AgP42/MMM-iFrame-Ping/blob/master/screenshot/MMM-iFrame-Ping.png)
+![TRENDnet snapshot](screenshots/trendnet_snapshot.png)
 
 MMM-RemoteControl menu for SmartWebDisplay:
 
-![MMM-RemoteControl](https://github.com/AgP42/MMM-Remote-Control/raw/master/.github/RemoteSWD_2.png)
+![MMM-RemoteControl menu](screenshots/MMM-RemoteControl_menu.png)
 
 ## Installation
 
 Git clone this repo into ~/MagicMirror/modules directory:
-```
+```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/ItsMeBrille/MMM-SmartWebDisplay
 ```
-and add the configuration section in your MagicMirror config file
+
+and add the configuration section in your MagicMirror config file.
 
 ## Update
-```
+
+```bash
 cd ~/MagicMirror/modules/MMM-SmartWebDisplay
 git pull
 ```
 
-## Module configuration
+## Configuration
 
 To use this module, add it to the modules array in the `config/config.js` file:
 
 ```javascript
-{
-  module: 'MMM-SmartWebDisplay',
-  position: 'middle_center',
-  config: {
-    // See 'Configuration options' for more information.
-    logDebug: false, // set to true to get detailed debug logs. To see them: "Ctrl+Shift+i"
-    height:"100%", // height
-    width:"100%", // width
-    updateInterval: 0, // in minuttes. 0 for no refresh
-    NextURLInterval: 0.5, // in minuttes, 0 to not auto jump to next
-    displayLastUpdate: true, // display the last update time
-    displayLastUpdateFormat: 'ddd - HH:mm:ss', // format of the date and time to display
-    url: ["http://magicmirror.builders/", "https://www.youtube.com/embed/Qwc2Eq6YXTQ?autoplay=1"], // URL to be displayed
-    scrolling: "no", // whether or not to allow scrolling
-    shutoffDelay: 10000 // delay in milliseconds to video shut-off while using together with MMM-PIR-Sensor 
-  }
-},
+    {
+      module: 'MMM-SmartWebDisplay',
+      position: 'middle_center',
+      config: {
+        // See 'Configuration options' for more information.
+        logDebug: false, // set to true to get detailed debug logs. To see them: "Ctrl+Shift+i"
+        height:"100%", // height
+        width:"100%", // width
+        updateInterval: 0, // in minuttes. 0 for no refresh
+        NextURLInterval: 0.5, // in minuttes, 0 to not auto jump to next
+        displayLastUpdate: true, // display the last update time
+        displayLastUpdateFormat: 'ddd - HH:mm:ss', // format of the date and time to display
+        url: ["http://magicmirror.builders/", "https://www.youtube.com/embed/Qwc2Eq6YXTQ?autoplay=1"], // URL to be displayed
+        scrolling: "no", // whether or not to allow scrolling
+        shutoffDelay: 10000 // delay in milliseconds to video shut-off while using together with MMM-PIR-Sensor 
+      }
+    },
 ```
 
-## Configuration options
+### Configuration options
 
 The following properties can be configured:
 
@@ -116,20 +119,23 @@ Warning: "play/pause/stop" applies to URL rotation, not to the video itself. Int
 ## Use case examples
 
 ### Nest Camera streaming
+
 As of right now, Nest Camera only supports streaming to iFrame when the camera feed is set to public. When you set it to public, you'll get a live URL and an iFrame embedded URL (should look like https://video.nest.com/embedded/live/wSbs3mRsOF?autoplay=1). For more info, check out this thread https://nestdevelopers.io/t/is-there-a-way-to-get-nest-camera-streams-in-an-iframe/813. 
 
 ### Youtube streaming
+
 Just go to the video you want (see below for more details). Click share -> embed and pull out the URL. Then add the autoplay parameter (eg. https://www.youtube.com/embed/pcmjht0Hqvw?autoplay=1).
 
 #### Youtube playlist
+
 You can stream any public playlist or make a playlist (this requires a YouTube account). 
 With your own playlist streaming on the mirror, you can change the contents directly on YouTube (adding videos, removing others, adding live channels and broadcasts..etc) using your mobile or desktop, without changing anything to the mirror and it'll be updated automatically 🥇
 
 To do so: firstly, go to the first video in any playlist, right-click and choose Copy embed code as seen here:
-![MMM-iFrame-Ping](https://github.com/AgP42/MMM-iFrame-Ping/blob/master/screenshot/youtubeplaylist.jpg)
+![YouTube playlist](screenshots/youtube_playlist.jpg)
 
 now paste it on any notepad. It should look like this:
-```
+```html
 <iframe width="853" height="480" src="https://www.youtube.com/embed/XMIc4uTAMh0?list=PLbIZ6k-SE9ShGEZ_wuvG3hatiC6jWJgVm" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ```
 
@@ -167,7 +173,7 @@ to disable the player controls completely for a cleaner look, add
 
     controls=0
 
-**Thanks to [theramez](https://github.com/AgP42/MMM-iFrame-Ping/issues/4) for this method**
+**Thanks to [theramez](https://github.com/AgP42/MMM-iFrame-Ping/issues/4) for this method.**
 
 ## License
 
