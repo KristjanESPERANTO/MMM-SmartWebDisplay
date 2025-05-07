@@ -19,10 +19,5 @@
   "bugs": {
     "url": "https://github.com/ItsMeBrille/MMM-SmartWebDisplay/issues"
   },
-  "homepage": "https://github.com/ItsMeBrille/MMM-SmartWebDisplay",
-  "dependencies": {
-    "request": "latest",
-    "express": "latest",
-    "body-parser" : "latest"
-    }
+  "homepage": "https://github.com/ItsMeBrille/MMM-SmartWebDisplay"
 }
