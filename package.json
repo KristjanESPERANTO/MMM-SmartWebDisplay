@@ -1,7 +1,7 @@
 {
   "name": "MMM-SmartWebDisplay",
   "version": "0.0.1",
-  "description": "Smart iframe module for Magic Mirror",
+  "description": "Smart iframe module for MagicMirror².",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ItsMeBrille/MMM-SmartWebDisplay"
