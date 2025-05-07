@@ -42,7 +42,7 @@ MMM-RemoteControl menu for SmartWebDisplay:
 Git clone this repo into ~/MagicMirror/modules directory:
 ```
 cd ~/MagicMirror/modules
-git clone https://github.com/AgP42/MMM-SmartWebDisplay.git
+git clone https://github.com/ItsMeBrille/MMM-SmartWebDisplay
 ```
 and add the configuration section in your MagicMirror config file
 
