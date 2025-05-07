@@ -1,6 +1,6 @@
 # MMM-SmartWebDisplay
 
-`MMM-SmartWebDisplay` is a module for MagicMirror². It allows displaying any web content on your [MagicMirror](https://github.com/MichMich/MagicMirror) and interacting with it through notifications or with [MMM-TelegramBot](https://github.com/eouia/MMM-TelegramBot).
+`MMM-SmartWebDisplay` is a module for MagicMirror². It allows displaying any web content on your [MagicMirror](https://github.com/MagicMirrorOrg/MagicMirror) and interacting with it through notifications or with [MMM-TelegramBot](https://github.com/eouia/MMM-TelegramBot).
 
 This module is a major evolution of [MMM-iFrame-Ping](https://github.com/AgP42/MMM-iFrame-Ping)
 
